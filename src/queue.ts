@@ -1,50 +1,48 @@
 export default class Queue {
-    private _queue: Function[];
-    private _onEmptyCallback: any;
-    private _active: any;
+  private _queue: Function[];
+  private _onEmptyCallback: any;
+  private _active: any;
 
-    constructor(onEmptyCallback: Function) {
-        this._queue = [];
-        this._onEmptyCallback = onEmptyCallback;
+  constructor(onEmptyCallback: Function) {
+    this._queue = [];
+    this._onEmptyCallback = onEmptyCallback;
+  }
+
+  /**
+   * @param {function(Function)} func
+   * @returns {jQuery.Deferred}
+   */
+  public queue(func: Function) {
+    this._queue.push(func);
+
+    if (this._queue.length === 1 && !this._active) {
+      this._progressQueue();
+    }
+  }
+
+  private _progressQueue() {
+    // Stop if nothing left in queue
+    if (!this._queue.length) {
+      this._onEmptyCallback();
+      return;
     }
 
-    /***
-     *
-     * @param {function(Function)} func
-     * @returns {jQuery.Deferred}
-     */
-    public queue(func: Function) {
-        this._queue.push(func);
+    let f = this._queue.shift();
+    this._active = true;
 
-        if (this._queue.length === 1 && !this._active) {
-            this._progressQueue();
-        }
-    }
+    // execute function
+    let completeFunction = this.next.bind(this);
+    if (f) f(completeFunction);
+  }
 
-    private _progressQueue() {
+  public clear() {
+    this._queue = [];
+  }
 
-        // stop if nothing left in queue
-        if (!this._queue.length) {
-            this._onEmptyCallback();
-            return;
-        }
-
-        let f = this._queue.shift();
-        this._active = true;
-
-        // execute function
-        let completeFunction = this.next.bind(this);
-        if (f) f(completeFunction);
-    }
-
-    public clear() {
-        this._queue = [];
-    }
-
-    public next() {
-        this._active = false;
-        this._progressQueue();
-    }
+  public next() {
+    this._active = false;
+    this._progressQueue();
+  }
 }
 
 

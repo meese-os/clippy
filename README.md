@@ -19,54 +19,48 @@ Run `npm run demo` to view the agent demo page.
 
 ### NPM / Webpack
 
-```
+```shell
 npm install clippyts
 ```
 
 ```ts
-import clippy from 'clippyts'
+import clippy from "clippyts"
 
-clippy.load('Merlin', (agent: Agent) => {
-    // do anything with the loaded agent
-    agent.show();
+clippy.load("Merlin", (agent: Agent) => {
+  // Do anything with the loaded agent
+  agent.show();
 });
 ```
 
 ## Actions
-All the agent actions are queued and executed by order, so you could stack them.
+All the agent actions are queued and executed by order, so you can stack them:
 
-```javascript
-// play a given animation
-agent.play('Searching');
+```js
+// Play a given animation
+agent.play("Searching");
 
-// play a random animation
+// Play a random animation
 agent.animate();
 
-// get a list of all the animations
+// Get a list of all the animations
 agent.animations();
 // => ["MoveLeft", "Congratulate", "Hide", "Pleased", "Acknowledge", ...]
 
 // Show text balloon
-agent.speak('When all else fails, bind some paper together. My name is Clippy.');
+agent.speak("When all else fails, bind some paper together. My name is Clippy.");
 
-// move to the given point, use animation if available
+// Move to the given point, use animation if available
 agent.moveTo(100,100);
 
-// gesture at a given point (if gesture animation is available)
+// Gesture at a given point (if gesture animation is available)
 agent.gestureAt(200,200);
 
-// stop the current action in the queue
+// Stop the current action in the queue
 agent.stopCurrent();
 
-// stop all actions in the queue and go back to idle mode
+// Stop all actions in the queue and go back to idle mode
 agent.stop();
 ```
-
-
-# Licence
-MIT
-
-[FOSSA Status](https://app.fossa.com/projects/git%2Bgithub.com%2Flizozom%2Fclippyts?utm_source=share_link)
 
 ## Special Thanks
 - [pi0 for the original clippyJS implementation](https://github.com/pi0/clippyjs)

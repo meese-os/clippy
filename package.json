@@ -1,6 +1,6 @@
 {
-  "name": "clippyts",
-  "version": "1.0.5",
+  "name": "@meese-os/clippy",
+  "version": "1.0.0",
   "description": "Same old Clippy. Modern JavaScript.",
   "main": "dist/index.js",
   "web": "dist/index.js",
@@ -14,18 +14,18 @@
     "clean": "rimraf dist",
     "watch": "rollup -c -w",
     "prepublish": "npm run build",
-    "start": "npm run build && npm run open",
-    "demo": "concurrently \"http-server -a localhost -p 1234\" \"open http://localhost:1234/demo\""
+    "demo": "concurrently \"http-server -a localhost -p 1234\" \"open http://localhost:1234/demo\"",
+    "start": "npm run build && npm run demo"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lizozom/clippyts.git"
+    "url": "git+https://github.com/meese-os/clippy.git"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/lizozom/clippyts/issues"
+    "url": "https://github.com/meese-os/clippy/issues"
   },
-  "homepage": "https://github.com/lizozom/clippyts#readme",
+  "homepage": "https://github.com/meese-os/clippy#readme",
   "devDependencies": {
     "@lopatnov/rollup-plugin-uglify": "^2.1.5",
     "@open-wc/building-rollup": "^2.2.1",
