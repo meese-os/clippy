@@ -1,7 +1,7 @@
 import { AgentWrapper } from "./types";
 export interface AgentOptions {
     agent: AgentWrapper;
-    selector?: string;
+    selector?: string | HTMLElement;
 }
 export default class Agent {
     private _queue;

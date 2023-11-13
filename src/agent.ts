@@ -6,7 +6,7 @@ import { Deferred, getHeight, getOffset, getWidth, getWindowScroll } from "./uti
 
 export interface AgentOptions {
   agent: AgentWrapper;
-  selector?: string;
+  selector?: string | HTMLElement;
 }
 
 export default class Agent {
@@ -36,7 +36,9 @@ export default class Agent {
     el.setAttribute("hidden", "true");
     this._el = el;
 
-    let selectorEl = selector ? document.getElementsByClassName(selector)[0] : undefined;
+    let selectorEl = selector && typeof selector === "string" ?
+      document.getElementsByClassName(selector)[0] :
+      selector as HTMLElement || undefined;
     (selectorEl || document.body).appendChild(this._el);
 
     this._animator = new Animator(this._el, agent, []);
