@@ -1,3 +1,5 @@
+import { Deferred } from "./utils";
+
 export default class Queue {
   private _queue: Function[];
   private _onEmptyCallback: any;
@@ -10,7 +12,7 @@ export default class Queue {
 
   /**
    * @param {function(Function)} func
-   * @returns {jQuery.Deferred}
+   * @returns {Deferred}
    */
   public queue(func: Function) {
     this._queue.push(func);
