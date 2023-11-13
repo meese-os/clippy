@@ -5,7 +5,7 @@ export default class Queue {
     constructor(onEmptyCallback: Function);
     /**
      * @param {function(Function)} func
-     * @returns {jQuery.Deferred}
+     * @returns {Deferred}
      */
     queue(func: Function): void;
     private _progressQueue;

@@ -5,7 +5,7 @@ const ClippyDemo = (function() {
   const availableAgents = ["Bonzi", "Clippy", "F1", "Genie", "Genius", "Links", "Merlin", "Peedy", "Rocky", "Rover"];
   const talks = [
     "how can I help you?",
-    "nice day!",
+    "good day!",
     "glad to meet you.",
     "at your service",
     "hello!",
