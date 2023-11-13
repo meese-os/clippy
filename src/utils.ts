@@ -1,9 +1,9 @@
 export const getWindowScroll = () => {
-  const supportPageOffset = window.pageXOffset !== undefined;
+  const supportPageOffset = window.scrollX !== undefined;
   const isCSS1Compat = ((document.compatMode || "") === "CSS1Compat");
 
-  const scrollLeft = supportPageOffset ? window.pageXOffset : isCSS1Compat ? document.documentElement.scrollLeft : document.body.scrollLeft;
-  const scrollTop = supportPageOffset ? window.pageYOffset : isCSS1Compat ? document.documentElement.scrollTop : document.body.scrollTop;
+  const scrollLeft = supportPageOffset ? window.scrollX : isCSS1Compat ? document.documentElement.scrollLeft : document.body.scrollLeft;
+  const scrollTop = supportPageOffset ? window.scrollY : isCSS1Compat ? document.documentElement.scrollTop : document.body.scrollTop;
   return {
     scrollLeft,
     scrollTop

@@ -1,4 +1,4 @@
-import { Deferred } from "./utils";
+import type { Deferred } from "./utils";
 
 export default class Queue {
   private _queue: Function[];
